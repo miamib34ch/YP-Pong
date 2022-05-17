@@ -64,7 +64,7 @@ class PongViewController: UIViewController {
 
     var enemyPaddleUpdatesCounter: UInt8 = 0
 
-    // NOTE: Все переменные ниже вплоть до 77-ой строки необходимы для настроек физики
+    // NOTE: Все переменные ниже вплоть до 74-ой строки необходимы для настроек физики
     // Мы не будем вдаваться в подробности того, что это такое и как устроено
     var dynamicAnimator: UIDynamicAnimator?
     var ballPushBehavior: UIPushBehavior?
@@ -73,9 +73,15 @@ class PongViewController: UIViewController {
     var enemyPaddleDynamicBehavior: UIDynamicItemBehavior?
     var collisionBehavior: UICollisionBehavior?
 
-    // NOTE: Все переменный вплоть до 84-ой строки используются для реагирования
+    // NOTE: Все переменный вплоть до 82-ой строки используются для реагирования
     // на стлокновения мяча - проигрывание звука столкновения и вибро-отклик
     var audioPlayers: [AVAudioPlayer] = []
+    var audioPlayersLock = NSRecursiveLock()
+    var softImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .soft)
+    var lightImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .light)
+    var rigidImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .rigid)
+
+    /// Эта переменная плеера предназначена для повторяющегося проигрывания фоновой музыки в игре
     var backgroundSoundAudioPlayer: AVAudioPlayer? = {
         guard
             let backgroundSoundURL = Bundle.main.url(forResource: "background", withExtension: "wav"),
@@ -87,10 +93,6 @@ class PongViewController: UIViewController {
 
         return audioPlayer
     }()
-    var audioPlayersLock = NSRecursiveLock()
-    var softImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .soft)
-    var lightImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .light)
-    var rigidImpactFeedbackGenerator = UIImpactFeedbackGenerator(style: .rigid)
 
     /// Эта переменная хранит счет пользователя
     var userScore: Int = 0 {
@@ -110,7 +112,7 @@ class PongViewController: UIViewController {
         /*
         NOTE: 👨‍💻 Заметка по настройке экрана игры 👨‍💻
 
-        Код на 130-ей строке настраивает все необходимое для игры.
+        Код на 126-ой строке настраивает все необходимое для игры.
         Сейчас этот код выделен серым, потому что слэша со звездочкой
         над этим текстом и под этим текстом `/* */` делают его комменатрием.
 
@@ -118,7 +120,7 @@ class PongViewController: UIViewController {
         Комментарии не учитываются при работе программы, а просто игнорируются,
         поэтому сейчас код не запустится.
 
-        Убери два слэша в начале 130-ей строки, чтобы программа заработала!
+        Убери два слэша в начале 126-ой строки, чтобы программа заработала!
         */
 
         configurePongGame()
@@ -130,14 +132,13 @@ class PongViewController: UIViewController {
 
         // NOTE: Включаем динамику взаимодействия
         self.enableDynamics()
-
-        self.backgroundSoundAudioPlayer?.play()
     }
 
     /// Эта функция вызывается, когда экран первый раз отрисовал весь свой интерфейс
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
+        // NOTE: Устанавливаем шару радиус скругления равный половине высоты
         ballView.layer.cornerRadius = ballView.bounds.size.height / 2
     }
 
@@ -177,8 +178,9 @@ class PongViewController: UIViewController {
         // NOTE: Указываем, что при следующем нажатии на экран нужно запустить мяч
         self.shouldLaunchBallOnNextTap = true
 
-        // NOTE: запускаем фоновую музыку
+        // NOTE: Начинаем проигрывать фоновую музыку
         self.backgroundSoundAudioPlayer?.prepareToPlay()
+        self.backgroundSoundAudioPlayer?.play()
     }
 
     private func updateUserScoreLabel() {
