@@ -99,6 +99,8 @@ class PongViewController: UIViewController {
         didSet {
             /// При каждом обновлении значения переменной - обновляем текст в лэйбле
             updateUserScoreLabel()
+            /// Проверяем победу
+            checkWinOrLose()
         }
     }
     
@@ -107,6 +109,8 @@ class PongViewController: UIViewController {
         didSet {
             /// При каждом обновлении значения переменной - обновляем текст в лэйбле
             updateEnemyScoreLabel()
+            /// Проверяем победу
+            checkWinOrLose()
         }
     }
 
@@ -202,4 +206,22 @@ class PongViewController: UIViewController {
     private func updateEnemyScoreLabel() {
         enemyScoreLabel.text = "\(enemyScore)"
     }
+    
+    func checkWinOrLose(){
+        if userScore == 5{
+            /// Показываем сообщение о победе
+            self.showToast(message: "Вы победили!", font: .systemFont(ofSize: 20.0))
+            /// Обнуляем переменные, сначала ту, которая победила;  потому что при изменении числа, будет вызываться эта же функция и при неправильном порядке обнуления, условие всегда будет выполняться, поскольку обнулили не выигрушную и получится вечный цикл
+            userScore = 0
+            enemyScore = 0
+        }
+        else if enemyScore == 1 {
+            /// Показываем сообщение о победе
+            self.showToast(message: "Вы проиграли!", font: .systemFont(ofSize: 20.0))
+            /// Обнуляем переменные, сначала ту, которая победила;  потому что при изменении числа, будет вызываться эта же функция и при неправильном порядке обнуления, условие всегда будет выполняться, поскольку обнулили не выигрушную и получится вечный цикл
+            enemyScore = 0
+            userScore = 0
+        }
+    }
+    
 }

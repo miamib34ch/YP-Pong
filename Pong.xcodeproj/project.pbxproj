@@ -25,6 +25,7 @@
 		2DD88B7F28344DD500887904 /* PongViewController+BallHit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD88B7E28344DD500887904 /* PongViewController+BallHit.swift */; };
 		2DD88B8128344E2400887904 /* Sound.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD88B8028344E2400887904 /* Sound.swift */; };
 		2DD88B8328345D1000887904 /* background.wav in Resources */ = {isa = PBXBuildFile; fileRef = 2DD88B8228345D1000887904 /* background.wav */; };
+		8BDAE19528F5FA23007F365B /* PongViewController+Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDAE19428F5FA23007F365B /* PongViewController+Toast.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		2DD88B7E28344DD500887904 /* PongViewController+BallHit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PongViewController+BallHit.swift"; sourceTree = "<group>"; };
 		2DD88B8028344E2400887904 /* Sound.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sound.swift; sourceTree = "<group>"; };
 		2DD88B8228345D1000887904 /* background.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = background.wav; sourceTree = "<group>"; };
+		8BDAE19428F5FA23007F365B /* PongViewController+Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PongViewController+Toast.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,6 +130,7 @@
 				2D30F1822833E05E006F493F /* PongViewController+GestureHandling.swift */,
 				2D30F18C2833EDDD006F493F /* PongViewController+LaunchBall.swift */,
 				2D30F1842833E074006F493F /* PongViewController+UIKitDynamics.swift */,
+				8BDAE19428F5FA23007F365B /* PongViewController+Toast.swift */,
 			);
 			path = PongViewControllerExtensions;
 			sourceTree = "<group>";
@@ -224,6 +227,7 @@
 				2DD88B7F28344DD500887904 /* PongViewController+BallHit.swift in Sources */,
 				2D30F18D2833EDDD006F493F /* PongViewController+LaunchBall.swift in Sources */,
 				2D30F1872833E0D6006F493F /* CGPoint+Utils.swift in Sources */,
+				8BDAE19528F5FA23007F365B /* PongViewController+Toast.swift in Sources */,
 				2D30F1832833E05E006F493F /* PongViewController+GestureHandling.swift in Sources */,
 				2D30F1892833E0E9006F493F /* Constants.swift in Sources */,
 				2D9E77962767D1C7008457CD /* AppDelegate.swift in Sources */,
