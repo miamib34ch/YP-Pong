@@ -66,6 +66,13 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Результат" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pa5-AU-ajn">
+                                <rect key="frame" x="0.0" y="325" width="414" height="83.333333333333314"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="40"/>
+                                <color key="textColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -77,14 +84,18 @@
                             <constraint firstItem="unS-db-gNZ" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.25" id="Azj-K5-acL"/>
                             <constraint firstItem="sWf-Ua-Wfx" firstAttribute="trailing" secondItem="vDu-zF-Fre" secondAttribute="trailing" id="CKc-LF-Y8e"/>
                             <constraint firstItem="MXA-l5-Wr3" firstAttribute="width" secondItem="5EZ-qb-Rvc" secondAttribute="width" multiplier="0.25" id="FrU-IV-OSE"/>
+                            <constraint firstItem="Pa5-AU-ajn" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="325" id="Hzp-f9-zJk"/>
                             <constraint firstItem="yKO-Ij-dit" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="JTt-dj-WbD"/>
                             <constraint firstItem="MXA-l5-Wr3" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="44" id="MHG-3c-Q1W"/>
                             <constraint firstItem="MXA-l5-Wr3" firstAttribute="centerX" secondItem="vDu-zF-Fre" secondAttribute="centerX" id="N8c-to-Rmn"/>
                             <constraint firstItem="sWf-Ua-Wfx" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="PXZ-um-Ppr"/>
+                            <constraint firstItem="Pa5-AU-ajn" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="VbQ-b8-hHc"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Pa5-AU-ajn" secondAttribute="trailing" id="YoS-ZA-wIE"/>
                             <constraint firstItem="yKO-Ij-dit" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="ZTD-QA-J9a"/>
                             <constraint firstAttribute="trailing" secondItem="Zf6-XP-fUO" secondAttribute="trailing" id="bxp-Dz-BZ1"/>
                             <constraint firstItem="QFA-jq-m1C" firstAttribute="centerY" secondItem="vDu-zF-Fre" secondAttribute="centerY" id="edd-dB-Tfh"/>
                             <constraint firstItem="Zf6-XP-fUO" firstAttribute="leading" secondItem="5EZ-qb-Rvc" secondAttribute="leading" id="fNs-7O-y5q"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="Pa5-AU-ajn" secondAttribute="bottom" constant="327.66666666666669" id="gjl-xh-qNI"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="unS-db-gNZ" secondAttribute="bottom" constant="44" id="hQ9-X2-x6q"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="yKO-Ij-dit" secondAttribute="trailing" id="mF6-T6-YCF"/>
                             <constraint firstItem="QFA-jq-m1C" firstAttribute="width" secondItem="unS-db-gNZ" secondAttribute="width" multiplier="0.33" id="opd-30-qou"/>
@@ -97,13 +108,14 @@
                         <outlet property="enemyPaddleView" destination="MXA-l5-Wr3" id="odV-q7-r6j"/>
                         <outlet property="enemyScoreLabel" destination="yKO-Ij-dit" id="TeG-88-shM"/>
                         <outlet property="lineView" destination="Zf6-XP-fUO" id="kGT-ZU-0eH"/>
+                        <outlet property="resultLabel" destination="Pa5-AU-ajn" id="cPD-Sm-c2i"/>
                         <outlet property="userPaddleView" destination="unS-db-gNZ" id="IFy-ER-tRo"/>
                         <outlet property="userScoreLabel" destination="sWf-Ua-Wfx" id="tMU-4S-2qN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="66.666666666666671" y="76.339285714285708"/>
+            <point key="canvasLocation" x="66.666666666666671" y="75.815217391304358"/>
         </scene>
     </scenes>
 </document>
